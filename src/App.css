@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  color: var(--text-color);
 }
 
 .App-logo {
@@ -35,4 +36,33 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+/* Search bar styling */
+.search-bar {
+  height: 50px;
+}
+.search-bar__input {
+  width: calc(35%);
+  border-radius: 10px;
+  background-color: var(--theme-gray-color);
+  /* box-shadow: 10px 10px 20px rgba(0, 2, 10, 0.2); */
+  box-shadow: 10px 10px 20px rgba(0, 2, 10, 0.2),
+    inset 5px 5px 5px 0px rgba(0, 0, 0, 0.28),
+    inset -5px -5px 5px 0px rgba(103, 108, 132, 0.17);
+  color: var(--text-color);
+  font-size: 1rem;
+}
+
+.search-bar__submit {
+  border-radius: 10px;
+  background-color: var(--theme-gray-color);
+  /* box-shadow: 10px 10px 20px rgba(0, 2, 10, 0.2); */
+  box-shadow: 10px 10px 20px rgba(0, 2, 10, 0.2),
+    inset 5px 5px 5px 0px rgba(103, 108, 132, 0.17),
+    inset -5px -5px 5px 0px rgba(0, 0, 0, 0.28);
+}
+.search-bar__input:focus,
+.search-bar__submit:focus {
+  outline: none;
 }
