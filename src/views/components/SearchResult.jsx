@@ -5,7 +5,7 @@ import DisplayCard from "./DisplayCard";
 
 const SearchResult = () => {
   return (
-    <div className="search-result d-flex flex-wrap mt-5">
+    <div className="search-result d-flex flex-wrap mt-5 ">
       <DisplayCard></DisplayCard>
       <DisplayCard></DisplayCard>
       <DisplayCard></DisplayCard>

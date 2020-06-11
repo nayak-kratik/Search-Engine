@@ -654,3 +654,14 @@
 .font-italic {
   font-style: italic !important;
 }
+
+.box-shadow-outset {
+  box-shadow: 10px 10px 20px rgba(0, 2, 10, 0.2),
+    inset 2px 2px 5px 0px rgba(103, 108, 132, 0.17),
+    inset -2px -2px 5px 0px rgba(0, 0, 0, 0.28);
+}
+.box-shadow-inset {
+  box-shadow: 10px 10px 20px rgba(0, 2, 10, 0.2),
+    inset 5px 5px 5px 0px rgba(0, 0, 0, 0.28),
+    inset -5px -5px 5px 0px rgba(103, 108, 132, 0.17);
+}
