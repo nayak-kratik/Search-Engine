@@ -23,7 +23,7 @@ const privateMethods = {
 export default class SearchEngine {
   constructor() {
     this.hashMap = require("../assets/hashMap.json");
-    this.booksData = require("../assets/dummy.json");
+    this.booksData = require("../assets/data.json");
   }
 
   search(searchQuery, numberOfResults) {

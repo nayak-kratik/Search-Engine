@@ -2,7 +2,7 @@
   --theme-gray-color: #32383d;
   --element-bg-color: #282c30;
   --text-color: #929292;
-  --border-radius: "10px";
+  --border-radius: 5px;
 }
 
 body {

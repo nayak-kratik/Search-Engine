@@ -50,7 +50,7 @@ const writeHashMapToFile = (hashMap) => {
 async function preProcess() {
   // There are few steps for processing the data.json to create hashmap.
   // First load the JSON file and assign it to booksData variable
-  const booksData = await readFile("./src/assets/dummy.json");
+  const booksData = await readFile("./src/assets/data.json");
   // Pass the booksData variable to hashMapCreator wizard.
   const summaryHashMap = await createSummaryHashMap(booksData);
   const result = await writeHashMapToFile(summaryHashMap);
