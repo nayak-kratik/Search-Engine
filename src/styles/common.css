@@ -42,28 +42,24 @@
 
 /* Flexbox properties */
 .flex-row {
-  -webkit-box-orient: horizontal !important;
   -webkit-box-direction: normal !important;
   -ms-flex-direction: row !important;
   flex-direction: row !important;
 }
 
 .flex-column {
-  -webkit-box-orient: vertical !important;
   -webkit-box-direction: normal !important;
   -ms-flex-direction: column !important;
   flex-direction: column !important;
 }
 
 .flex-row-reverse {
-  -webkit-box-orient: horizontal !important;
   -webkit-box-direction: reverse !important;
   -ms-flex-direction: row-reverse !important;
   flex-direction: row-reverse !important;
 }
 
 .flex-column-reverse {
-  -webkit-box-orient: vertical !important;
   -webkit-box-direction: reverse !important;
   -ms-flex-direction: column-reverse !important;
   flex-direction: column-reverse !important;
@@ -201,6 +197,21 @@
 .align-self-stretch {
   -ms-flex-item-align: stretch !important;
   align-self: stretch !important;
+}
+.flex-1 {
+  flex: 1;
+}
+.flex-2 {
+  flex: 2;
+}
+.flex-3 {
+  flex: 3;
+}
+.flex-4 {
+  flex: 4;
+}
+.flex-5 {
+  flex: 5;
 }
 
 /* Border  */

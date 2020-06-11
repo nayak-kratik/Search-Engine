@@ -44,7 +44,7 @@
 }
 .search-bar__input {
   width: calc(35%);
-  border-radius: 10px;
+  border-radius: var(--border-radius);
   background-color: var(--theme-gray-color);
   /* box-shadow: 10px 10px 20px rgba(0, 2, 10, 0.2); */
   box-shadow: 10px 10px 20px rgba(0, 2, 10, 0.2),
@@ -55,7 +55,7 @@
 }
 
 .search-bar__submit {
-  border-radius: 10px;
+  border-radius: var(--border-radius);
   background-color: var(--theme-gray-color);
   /* box-shadow: 10px 10px 20px rgba(0, 2, 10, 0.2); */
   box-shadow: 10px 10px 20px rgba(0, 2, 10, 0.2),
@@ -65,4 +65,22 @@
 .search-bar__input:focus,
 .search-bar__submit:focus {
   outline: none;
+}
+
+/* Search Result Display card */
+.search-result__display-card {
+  min-width: 200px;
+  border-radius: var(--border-radius);
+  height: 300px;
+  box-shadow: 10px 10px 20px rgba(0, 2, 10, 0.2),
+    inset 5px 5px 5px 0px rgba(103, 108, 132, 0.17),
+    inset -5px -5px 5px 0px rgba(0, 0, 0, 0.28);
+  color: var(--text-color);
+}
+
+.display-card__title {
+  border-bottom: 2px solid #282d32;
+}
+.display-card__author {
+  border-top: 2px solid #282d32;
 }
