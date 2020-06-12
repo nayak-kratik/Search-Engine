@@ -3,6 +3,8 @@
   --element-bg-color: #282c30;
   --text-color: #929292;
   --border-radius: 5px;
+  --highlight-color: #f44336;
+  --highlight-gradient-shift: #df5031;
 }
 
 body {

@@ -665,3 +665,7 @@
     inset 5px 5px 5px 0px rgba(0, 0, 0, 0.28),
     inset -5px -5px 5px 0px rgba(103, 108, 132, 0.17);
 }
+
+.disabled {
+  cursor: not-allowed !important;
+}
