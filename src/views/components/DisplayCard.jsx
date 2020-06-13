@@ -4,16 +4,20 @@ import "../../App.css";
 
 const DisplayCard = ({ title, summary, author }) => {
   return (
-    <>
-      <div className="search-result__display-card d-flex flex-column flex-1 m-3 px-3 box-shadow-outset justify-content-center">
-        <h2>{title}</h2>
-        <sup>By - {author}</sup>
-        <span className="read-more position-absolute">
-          Hover to read summary
-        </span>
-        {/* <p className="display-card__summary flex-5 m-0">{summary}</p> */}
+    <div className="flip-container box-shadow-outset search-result__display-card m-3">
+      <div className="flipper h-100 w-100 position-relative">
+        <div className="front position-absolute  h-100  px-3 d-flex flex-column  justify-content-center ">
+          <h2>{title}</h2>
+          <sup>By - {author}</sup>
+          <span className="read-more position-absolute">
+            Hover to read summary
+          </span>
+        </div>
+        <div className="back position-absolute h-100  px-3  d-flex overflow-scroll ">
+          <p className="m-auto p-3">{summary}</p>
+        </div>
       </div>
-    </>
+    </div>
   );
 };
 export default DisplayCard;

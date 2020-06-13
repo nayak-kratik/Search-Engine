@@ -32,7 +32,6 @@
   width: calc(35%);
   border-radius: var(--border-radius);
   background-color: var(--theme-gray-color);
-  /* box-shadow: 10px 10px 20px rgba(0, 2, 10, 0.2); */
   color: var(--text-color);
   font-size: 1rem;
 }
@@ -45,7 +44,6 @@
   color: var(--text-color);
   font-size: 1rem;
   position: absolute;
-  /* box-shadow: 10px 10px 20px rgba(0, 2, 10, 0.2); */
 }
 
 .search-bar__input:focus,
@@ -92,12 +90,10 @@
 
 /* Search Result Display card */
 .search-result__display-card {
-  min-width: 250px;
+  min-width: 300px;
   border-radius: var(--border-radius);
   height: 300px;
   color: var(--text-color);
-  position: relative;
-  /* z-index: -1; */
   cursor: pointer;
 }
 
@@ -105,4 +101,38 @@
   right: 5%;
   bottom: 5%;
   color: var(--text-color-light);
+}
+
+/* Flip box  */
+
+.flip-container {
+  perspective: 1000px;
+}
+.flipper {
+  transition: 0.6s;
+  transform-style: preserve-3d;
+}
+.flip-container:hover .flipper {
+  transform: rotateY(180deg);
+}
+
+.front,
+.back {
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.front {
+  transform: rotateY(0deg);
+}
+
+.back::-webkit-scrollbar {
+  display: none;
+}
+
+/* back, initially hidden pane */
+.back {
+  transform: rotateY(180deg);
 }
