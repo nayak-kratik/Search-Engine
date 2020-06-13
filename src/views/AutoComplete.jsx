@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { SearchBar, SearchResult } from "./components";
 import SearchEngine from "../utils/search";
 
@@ -6,6 +6,22 @@ const AutoComplete = () => {
   const [searchInstance] = useState(new SearchEngine());
   const [searchResult, setSearchResult] = useState([]);
   const [selectedBook ,setSelectedBook] = useState(undefined)
+  const [allSelectedBooks,setAllSelectedBook] = useState([])
+
+
+  const populateInputField =(title) =>{
+    document.getElementsByClassName('search-bar__input')[0].value = title
+    document.getElementsByClassName('search-bar__input')[0].style.color = 'var(--highlight-color)'
+  }
+  const unPopulateInputField =() =>{
+    document.getElementsByClassName('search-bar__input')[0].value = ''
+    document.getElementsByClassName('search-bar__input')[0].style.color = 'var(--text-color)'
+  }
+
+  const highlightSelectedBook = (chosenBook) =>{
+    setSearchResult([])
+    populateInputField(chosenBook.title)
+   }
 
   const onChange = (event) => {
     const searchQuery = event.target.value.toLowerCase();
@@ -16,17 +32,22 @@ const AutoComplete = () => {
         : []
     );
   };
+
   const onSelect =(e) =>{
     // Convert DOMStringMap to Object
     // The DOMStringMap interface is used for the HTMLElement.dataset attribute,to represent data for custom attributes added to elements.
+    const chosenBook = Object.assign({}, e.target.dataset)
     setSelectedBook(
-      Object.assign({}, e.target.dataset)
+      chosenBook
     )
+    highlightSelectedBook(chosenBook)
   }
   
   const onSubmit = (e) => {
-    console.log(e);
+    setAllSelectedBook(prevSelectedBooks => [...prevSelectedBooks,selectedBook]);
+    unPopulateInputField()
   };
+
   const searchBarParams = {
     onChange,
     onSubmit,
@@ -37,7 +58,7 @@ const AutoComplete = () => {
   return (
     <>
       <SearchBar {...searchBarParams}></SearchBar>
-      <SearchResult></SearchResult>
+      <SearchResult allBooks={allSelectedBooks} ></SearchResult>
     </>
   );
 };

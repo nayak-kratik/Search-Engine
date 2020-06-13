@@ -12,7 +12,6 @@ const SearchBar = ({
   searchResult,
   selectedBook,
 }) => {
-  console.log(selectedBook);
   return (
     <>
       <h2 className="title font-weight-bold">Search Books</h2>
@@ -24,6 +23,7 @@ const SearchBar = ({
         }}
       >
         <input
+          type="search"
           id="js-search-input"
           list="books"
           placeholder="Type here to search"
@@ -45,6 +45,7 @@ const SearchBar = ({
                 data-summary={item.summary}
                 data-author={item.author}
                 onClick={(e) => {
+                  e.preventDefault();
                   onSelect(e);
                 }}
               >
@@ -53,21 +54,14 @@ const SearchBar = ({
             ))}
         </div>
 
-        {selectedBook ? (
-          <button
-            className="search-bar__submit border-0 ml-2 box-shadow-outset"
-            type="submit"
-          >
-            <img src={SearchLogo} alt="Search Logo" className="h-100 w-100" />
-          </button>
-        ) : (
-          <button
-            className="search-bar__submit border-0 ml-2 box-shadow-outset disabled"
-            type="submit"
-          >
-            <img src={SearchLogo} alt="Search Logo" className="h-100 w-100 " />
-          </button>
-        )}
+        <button
+          className={`search-bar__submit border-0 ml-2 box-shadow-outset ${
+            !selectedBook ? "disabled" : ""
+          }`}
+          type="submit"
+        >
+          <img src={SearchLogo} alt="Search Logo" className="h-100 w-100" />
+        </button>
       </form>
     </>
   );

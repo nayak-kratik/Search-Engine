@@ -38,7 +38,7 @@
 }
 
 .search-bar__submit {
-  height: 54px;
+  height: 52px;
   border-radius: var(--border-radius);
   background-color: var(--theme-gray-color);
   cursor: pointer;
@@ -55,12 +55,14 @@
 .search-recommendation {
   width: calc(35%);
   position: absolute;
+  box-sizing: border-box;
   margin: auto;
   left: 0;
   right: 0;
   background: var(--theme-gray-color);
   cursor: pointer;
   border-radius: var(--border-radius);
+  z-index: 1;
   box-shadow: 10px 10px 20px rgba(0, 2, 10, 0.2),
     inset 5px 5px 5px 0px rgba(0, 0, 0, 0.28),
     inset -5px -5px 5px 0px rgba(103, 108, 132, 0.17);
@@ -85,21 +87,22 @@
   );
   background-clip: text;
   -webkit-background-clip: text;
-  /* -webkit-text-fill-color: transparent; */
-  text-shadow: 0px 0px 5px var(--highlight-color);
+  text-shadow: 0px 0px 2px var(--highlight-color);
 }
 
 /* Search Result Display card */
 .search-result__display-card {
-  min-width: 200px;
+  min-width: 250px;
   border-radius: var(--border-radius);
   height: 300px;
   color: var(--text-color);
+  position: relative;
+  /* z-index: -1; */
+  cursor: pointer;
 }
 
-.display-card__title {
-  border-bottom: 2px solid #282d32;
-}
-.display-card__author {
-  border-top: 2px solid #282d32;
+.read-more {
+  right: 5%;
+  bottom: 5%;
+  color: var(--text-color-light);
 }

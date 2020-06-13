@@ -669,3 +669,6 @@
 .disabled {
   cursor: not-allowed !important;
 }
+.overflow-scroll {
+  overflow: scroll;
+}

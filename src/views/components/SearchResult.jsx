@@ -3,14 +3,12 @@ import "../../styles/common.css";
 import "../../App.css";
 import DisplayCard from "./DisplayCard";
 
-const SearchResult = () => {
+const SearchResult = (props) => {
   return (
     <div className="search-result d-flex flex-wrap mt-5 ">
-      <DisplayCard></DisplayCard>
-      <DisplayCard></DisplayCard>
-      <DisplayCard></DisplayCard>
-      <DisplayCard></DisplayCard>
-      <DisplayCard></DisplayCard>
+      {props.allBooks.map((book, i) => (
+        <DisplayCard key={i} {...book}></DisplayCard>
+      ))}
     </div>
   );
 };
