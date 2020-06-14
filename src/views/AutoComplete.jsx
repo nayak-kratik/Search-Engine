@@ -8,31 +8,17 @@ const AutoComplete = () => {
   const [selectedBook, setSelectedBook] = useState(undefined);
   const [allSelectedBooks, setAllSelectedBook] = useState([]);
 
-  const populateInputField = (title) => {
-    document.getElementsByClassName("search-bar__input")[0].value = title;
-    document.getElementsByClassName("search-bar__input")[0].style.color =
-      "var(--highlight-color)";
-  };
-  const unPopulateInputField = () => {
-    document.getElementsByClassName("search-bar__input")[0].value = "";
-    document.getElementsByClassName("search-bar__input")[0].style.color =
-      "var(--text-color)";
-    setSelectedBook(undefined);
-  };
-
   const highlightSelectedBook = (chosenBook) => {
     setSearchResult([]);
-    populateInputField(chosenBook.title);
+    document.getElementsByClassName("search-bar__input")[0].value =
+      chosenBook.title;
   };
 
   const onChange = (event) => {
-    const searchQuery = event.target.value.toLowerCase();
-    const numberOfResults = 5;
-    setSearchResult(
-      searchQuery.length
-        ? searchInstance.search(searchQuery, numberOfResults)
-        : []
-    );
+    const searchQuery = event.target.value.trim().toLowerCase();
+    searchQuery
+      ? setSearchResult(searchInstance.search(searchQuery, 5))
+      : setSelectedBook(undefined);
   };
 
   const onSelect = (e) => {
@@ -48,7 +34,8 @@ const AutoComplete = () => {
       ...prevSelectedBooks,
       selectedBook,
     ]);
-    unPopulateInputField();
+    document.getElementsByClassName("search-bar__input")[0].value = "";
+    setSelectedBook(undefined);
   };
 
   const searchBarParams = {

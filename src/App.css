@@ -32,7 +32,7 @@
   width: calc(35%);
   border-radius: var(--border-radius);
   background-color: var(--theme-gray-color);
-  color: var(--text-color);
+  color: var(--highlight-color);
   font-size: 1rem;
 }
 

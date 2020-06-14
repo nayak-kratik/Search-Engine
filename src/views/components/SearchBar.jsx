@@ -4,6 +4,7 @@ import "../../App.css";
 import { func, arrayOf, object, shape, string } from "prop-types";
 
 import SearchLogo from "../../assets/search.svg";
+import AddLogo from "../../assets/plus.svg";
 
 const SearchBar = ({
   onChange,
@@ -59,7 +60,11 @@ const SearchBar = ({
           }`}
           type="submit"
         >
-          <img src={SearchLogo} alt="Search Logo" className="h-100 w-100" />
+          <img
+            src={!selectedBook ? SearchLogo : AddLogo}
+            alt="Logo"
+            className="h-100 w-100"
+          />
         </button>
       </form>
     </>
