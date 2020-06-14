@@ -8,26 +8,69 @@ const AutoComplete = () => {
   const [selectedBook, setSelectedBook] = useState(undefined);
   const [allSelectedBooks, setAllSelectedBook] = useState([]);
 
+  /*
+   * Function: highlightSelectedBook
+   *     This function populates the input field with selected book title and  hides recommendation box.
+   *
+   * Params/Handler:
+   *     chosenBook - Object
+   *
+   * Return:
+   *     None
+   */
+
   const highlightSelectedBook = (chosenBook) => {
     setSearchResult([]);
     document.getElementsByClassName("search-bar__input")[0].value =
       chosenBook.title;
   };
 
+  /*
+   * Function: onChange
+   *     This function gets the user input and calls search method
+   *
+   * Params/Handler:
+   *     Input event
+   *
+   * Return:
+   *     None
+   */
+
   const onChange = (event) => {
     const searchQuery = event.target.value.trim().toLowerCase();
-    searchQuery
-      ? setSearchResult(searchInstance.search(searchQuery, 5))
-      : setSelectedBook(undefined);
+    searchQuery.length
+      ? setSearchResult(searchInstance.search(searchQuery, 10))
+      : setSearchResult([]) && setSelectedBook(undefined);
   };
 
+  /*
+   * Function: onSelect
+   *     This function gets triggered when user selects a recommended book from the dropdown.
+   *
+   * Params/Handler:
+   *     Click event
+   *
+   * Return:
+   *     None
+   */
+
   const onSelect = (e) => {
-    // Convert DOMStringMap to Object
-    // The DOMStringMap interface is used for the HTMLElement.dataset attribute,to represent data for custom attributes added to elements.
+    // Convert DOMStringMap(used to represent custom attriutes added to element) to Object
     const chosenBook = Object.assign({}, e.target.dataset);
     setSelectedBook(chosenBook);
     highlightSelectedBook(chosenBook);
   };
+
+  /*
+   * Function: onSubmit
+   *     This function gets triggered on submitting the form. The selected book will be added to 'allSelectedBook' array .
+   *
+   * Params/Handler:
+   *     Submit event
+   *
+   * Return:
+   *     None
+   */
 
   const onSubmit = (e) => {
     setAllSelectedBook((prevSelectedBooks) => [
