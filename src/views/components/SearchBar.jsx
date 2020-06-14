@@ -25,7 +25,6 @@ const SearchBar = ({
         <input
           type="search"
           id="js-search-input"
-          list="books"
           placeholder="Type here to search"
           className="search-bar__input box-shadow-inset border-0  px-3"
           onChange={(e) => onChange(e)}

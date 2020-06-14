@@ -101,6 +101,7 @@
   right: 5%;
   bottom: 5%;
   color: var(--text-color-light);
+  font-size: 12px;
 }
 
 /* Flip box  */
@@ -119,7 +120,6 @@
 .front,
 .back {
   backface-visibility: hidden;
-  position: absolute;
   top: 0;
   left: 0;
 }
