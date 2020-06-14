@@ -22,13 +22,16 @@ const createSummaryHashMap = (booksData) => {
         .split(" ");
       const bookId = summaries[i]["id"];
       for (let j = 0; j < summaryWordsArray.length; j++) {
-        if (hashmap[summaryWordsArray[j]] === undefined) {
-          hashmap[summaryWordsArray[j]] = {};
-        }
-        if (hashmap[summaryWordsArray[j]][bookId] === undefined) {
-          hashmap[summaryWordsArray[j]][bookId] = { id: bookId, count: 1 };
-        } else {
-          hashmap[summaryWordsArray[j]][bookId]["count"] += 1;
+        for (let k = 1; k <= summaryWordsArray[j].length; k++) {
+          let currentKey = summaryWordsArray[j].slice(0, k);
+          if (hashmap[currentKey] === undefined) {
+            hashmap[currentKey] = {};
+          }
+          if (hashmap[currentKey][bookId] === undefined) {
+            hashmap[currentKey][bookId] = { id: bookId, count: 1 };
+          } else {
+            hashmap[currentKey][bookId]["count"] += 1;
+          }
         }
       }
     }
