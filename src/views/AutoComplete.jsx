@@ -38,9 +38,13 @@ const AutoComplete = () => {
 
   const onChange = (event) => {
     const searchQuery = event.target.value.trim().toLowerCase();
-    searchQuery.length
-      ? setSearchResult(searchInstance.search(searchQuery, 10))
-      : setSearchResult([]) && setSelectedBook(undefined);
+
+    if (searchQuery.length) {
+      setSearchResult(searchInstance.search(searchQuery, 10));
+    } else {
+      setSearchResult([]);
+      setSelectedBook(undefined);
+    }
   };
 
   /*
